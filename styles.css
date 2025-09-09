@@ -1,16 +1,16 @@
 :root {
-    --primary: #1b528d;     /* Azul marino profundo */
-    --secondary: #6dbde2;   /* Azul marino medio */
-    --light: hsl(80, 78%, 67%);       /* Gris claro casi blanco */
-    --dark: #887777;        /* Negro profundo */
-    --diabled: #f9fafa;     /* Azul grisáceo */
+    --primary: #1b528d;
+    --secondary: #6dbde2;
+    --light: hsl(80, 78%, 67%);
+    --dark: #887777;
+    --diabled: #f9fafa;
 }
 
 body {
     font-family: 'Lato', sans-serif;
     margin: 0;
     height: 100vh;
-    background: linear-gradient(to bottom, var(--secondary), #f8f9fa)
+    background: linear-gradient(to bottom, var(--secondary), #f8f9fa);
     color: var(--light);
 }
 
@@ -23,11 +23,11 @@ body {
 }
 
 .list {
-    margin: 25px auto;
-    padding: 25px;
+    margin: 25px; /* margen solo alrededor, no auto */
+    padding: 20px;
     background-color: var(--primary);
-    width: 100%;
-    max-width: 350px;
+    width: calc(100% - 50px); /* más ancho pero con margen lateral */
+    max-width: none; /* sin límite pequeño */
     box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
 }
 
@@ -36,43 +36,59 @@ body {
     align-items: center;
     justify-content: space-between;
     color: var(--light);
+    margin-bottom: 20px;
 }
 
-.dateRight {
+.week-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* fila de 4 columnas */
+    gap: 15px;
+}
+
+.week-grid .row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* segunda fila de 3 columnas */
+    gap: 15px;
+    grid-column: 1 / -1; /* ocupa todo el ancho */
+}
+
+.day-column {
+    background-color: var(--secondary);
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--light);
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 
-#dateNumber {
-    font-size: 50px;
-    color: var(--light);
-}
-
-#dateText {
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--light);
-}
-
-#dateMonth,
-#dateNumber,
-#dateText  {
+.day-header {
     font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.day-column {
+    background-color: var(--secondary);
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--light);
+    display: flex;
+    flex-direction: column;
 }
 
-#dateMonth,
-#dateYear {
-    margin-left: 7px;
-    font-size: 20px;
-    color: var(--light);
+.day-header {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--primary);
+
 }
 
 form {
-    margin: 20px 0;
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: auto 35px auto;
-    grid-column-gap: 15px;
+    grid-column-gap: 10px;
+    margin-bottom: 10px;
 }
 
 input {
@@ -104,7 +120,6 @@ input:focus {
 
 .addTaskButton:hover {
     background-color: var(--light);
-    color: var(--primary);
     transform: scale(1.1);
 }
 
@@ -117,21 +132,28 @@ input:focus {
 
 .orderButton:hover {
     background-color: var(--diabled);
-    color: var(--primary);
     transform: scale(1.05);
 }
 
 .task {
     background-color: var(--diabled);
-    padding: 15px;
-    margin-top: 15px;
+    padding: 10px;
+    margin-top: 8px;
     color: var(--primary);
     cursor: pointer;
     border-left: 4px solid var(--primary);
 }
 
 .done {
-    background-color: var(--diabled);
     text-decoration: line-through;
     color: var(--primary);
+}
+
+.title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--diabled);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
 }

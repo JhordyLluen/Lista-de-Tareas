@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de Tareas Semanal</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -18,24 +18,15 @@
 </head>
 <body>
     <div class="list roundBorder">
+        <h1 class="title">LISTA DE TAREAS SEMANAL</h1>
         <div class="date">
-            <div class="dateRight">
-                <div id="dateNumber"></div>
-                <div>
-                    <div id="dateMonth"></div>
-                    <div id="dateYear"></div>
-                </div>
-            </div>
-            <div id="dateText"></div>
-        </div>
-
-        <form onsubmit="addNewTask(event)">
-            <input type="text" name="taskText" autocomplete="off" placeholder="Nueva tarea" class="roundBorder">
-            <button type="submit" class="addTaskButton">+</button>
-            <button type="button" class="orderButton roundBorder" onclick="renderOrderedTasks()">Ordenar</button>
-        </form>
-
-        <div id="tasksContainer"></div>
+            <label for="weekPicker">Selecciona una semana:</label>
+            <input type="week" id="weekPicker">
     </div>
+
+    <div id="weekContainer" class="week-grid">
+        <!-- Aquí se generarán los días (Lunes a Domingo) -->
+    </div>
+</div>
 </body>
 </html>
